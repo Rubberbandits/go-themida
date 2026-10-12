@@ -302,3 +302,16 @@ installation/restoration, and cleanup.
 ## License
 
 Released into the public domain under the [Unlicense](LICENSE).
+
+## Attributions
+
+Themida® and SecureEngine® are products of, and trademarks of, Oreans
+Technologies. All related names, logos, and brands are the property of their
+respective owners, and are used in this project for identification and
+descriptive purposes only.
+
+This project is an independent, unofficial library. It is not affiliated with,
+endorsed by, or sponsored by Oreans Technologies, and it bundles no Oreans
+software. Using it to drive Themida requires your own licensed Themida
+installation, and your use of that software remains governed by Oreans'
+applicable license terms.
