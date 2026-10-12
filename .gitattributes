@@ -1,0 +1,8 @@
+*.go text eol=lf
+go.mod text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+LICENSE text eol=lf
+
+# Preserve exact project fixture bytes for round-trip tests.
+/test/*.tmd -text

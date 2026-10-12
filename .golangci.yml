@@ -1,0 +1,53 @@
+version: "2"
+
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  default: all
+  # Keep the current replacements enabled instead of running duplicate deprecated checks.
+  disable:
+    - exhaustruct
+    - gomodguard
+    - wsl
+  settings:
+    depguard:
+      rules:
+        all:
+          # Only the standard library and this project's own modules are allowed.
+          allow:
+            - $gostd
+            - github.com/Rubberbandits
+    gomoddirectives:
+      # The sibling go-wine module is consumed through a local replace directive.
+      replace-local: true
+    exhaustive:
+      # A default branch explicitly handles unsupported reflection kinds.
+      default-signifies-exhaustive: true
+    exhaustruct_v5:
+      allow-empty: true
+      # These API types deliberately support partial configuration and zero values.
+      optional-patterns:
+        - '^github.com/Rubberbandits/go-themida\.(Runner|Protection|Project|Options|MacroOptions|Macro)$'
+        - '^github.com/Rubberbandits/go-wine\.(Environment|Config)$'
+        - '^syscall\.SysProcAttr$'
+    nolintlint:
+      require-explanation: true
+      require-specific: true
+  exclusions:
+    presets: []
+
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - gofumpt
+    - goimports
+    - golines
+    - swaggo
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  uniq-by-line: false
